@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: wallet-api
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:walletdb;DB_CLOSE_DELAY=-1}
+    driver-class-name: ${DB_DRIVER:org.h2.Driver}
+    username: ${DB_USER:sa}
+    password: ${DB_PASSWORD:}
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:update}
+    open-in-view: false
+
+server:
+  port: ${PORT:8080}
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:walletapi-demo-secret-key-change-me-in-production-0123456789-abcdefghijklmnopqrstuvwxyz}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
